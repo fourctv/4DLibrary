@@ -1,0 +1,1 @@
+Avec cette application, vous pourrez gérer des étudiants, des livres et des emprunts.

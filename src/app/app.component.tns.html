@@ -1,0 +1,12 @@
+<ActionBar title="4D Library Sample" icon="" class="action-bar">
+    <ActionItem (tap)="openApp('bookList')">
+        <Button text="Books" class="action-item"></Button>
+    </ActionItem>
+    <ActionItem (tap)="openApp('studentList')" ios.position="right">
+        <Button text="Students" class="action-item"></Button>
+    </ActionItem>
+</ActionBar>
+
+<StackLayout>
+    <router-outlet></router-outlet>
+</StackLayout>

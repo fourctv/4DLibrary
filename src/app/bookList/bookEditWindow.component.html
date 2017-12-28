@@ -1,0 +1,47 @@
+<div class="formPanel">
+    <fieldset class="titledGroupBox">
+        <legend class="formHeaderSmall">Info for Book ({{currentRecord.ID}})</legend>
+        <div class="container" style="width:100%">
+            <div class="row">
+                <div class="col-lg-6" style="width:450px;">
+                    <div>
+                        <label class="fieldPromptBold" style="width:90px;">Title</label>
+                        <input type="text" class="fieldEntry" style="width:340px;" [(ngModel)]="currentRecord.title" />
+                    </div>
+                    <div>
+                        <label class="fieldPromptBold" style="width:90px;">By</label>
+                        <input type="text" class="fieldEntry" style="width:340px;" [(ngModel)]="currentRecord.author" />
+                    </div>
+                    <div>
+                        <label class="fieldPromptBold" style="width:90px;">Purchased on</label>
+                        <input type="date" class="fieldEntry" [ngModel]="currentRecord.purchaseDate | date:'yyyy-MM-dd'"  (ngModelChange)="currentRecord.purchaseDate = $event" />
+                    </div>
+                    <div>
+                        <span>
+                            <label class="fieldPromptBold" style="width:90px;">Description</label>
+                            <textarea type="text" class="fieldEntry" style="width:450px;height: 140px;resize: none" [(ngModel)]="currentRecord.description"></textarea>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6" style="width:200px;">
+                    <img [src]="currentRecord.photo | base64ImageRef" style="height:256px;" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="titledGroupBox">
+        <legend class="formHeaderSmall">Loan Info</legend>
+        <div style="height:150px;overflow-y:auto;display:block;">
+            <datagrid style="height:150px" [columns]="columnDefs" [useLazyLoading]="false" [pageableRefresh]="false" [pageableSizes]="false"
+                [pageableMessage]="recordCount"></datagrid>
+
+        </div>
+    </fieldset>
+
+
+    <div class="buttonBar">
+        <button class="regularButton" style="width:90px;" (click)="dialog.close('cancel')">Cancel</button>
+        <button class="regularButton" style="margin-left:20px;width:90px;" (click)="saveRecord()">SAVE</button>
+    </div>
+</div>

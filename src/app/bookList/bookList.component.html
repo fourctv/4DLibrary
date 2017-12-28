@@ -1,0 +1,32 @@
+<div platform style="height:100%;">
+    
+    <!-- This is our Header, with the web apps drop down -->
+    <header style="height:100%;">
+       <h2 style="padding-left:20px;">Manage Books</h2>
+        <record-list [editWindow]="editWindow">
+            <query-band [enableSort]="true" 
+                        [enableQBE]="true" 
+                        [enableButtonBar]="true" 
+                        [enableAddRecord]="true" 
+                        [enableDeleteRecord]="true">
+            
+                <queryband class="form-group">
+                    <books-queryband #customQueryBand class="form-group"></books-queryband>
+                </queryband>
+
+            
+            </query-band>
+            <datagrid [height]="'calc(100% - 250px)'" style="border-width: 1px;"
+                [model]="modelDef"
+                [columns]="columnDefs"
+                [useLazyLoading]="true"
+                [optimizeGridLoading]="true"
+                [pageSize]="50"
+                [excelFilename]="'Book List.xlsx'"
+                >
+            </datagrid>
+        </record-list>
+  
+
+    </header>
+</div>

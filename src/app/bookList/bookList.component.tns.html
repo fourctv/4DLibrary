@@ -1,0 +1,18 @@
+<GridLayout rows="auto *">
+    <SearchBar id="searchBar" hint="title or author" text="" (submit)="runSearch($event.object.text)" class="search-bar" row="0"></SearchBar>
+    
+    <ListView [items]="bookList" selectionBehavior="LongPress" (itemTap)="showRecord($event.index)" row="1">
+        <ng-template let-item="item">
+            <GridLayout padding="10" rows="auto" columns="80, *">
+                <!-- Ideally use Imagecache for ios and {N} Fresco for android here -->
+                <Image row="0" col="0" height="80" width="80" [src]="bookCover(item)">
+                </Image>
+                <StackLayout verticalAlignment="center" marginLeft="10" row="0" col="1">
+                    <Label class="h4" [text]="item.title" ></Label>
+                    <Label class="h6" textWrap="true" [text]="item.author" ></Label>
+                    <Label class="pull-right {{(item.isLoaned == 'in')?'text-primary':'text-danger'}}" [text]="(item.isLoaned == 'in')?'Available':'Loaned'" marginLeft="20"></Label>
+                </StackLayout>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>

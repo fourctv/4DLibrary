@@ -1,0 +1,35 @@
+<GridLayout margin="25" rows="auto, *, auto">
+    <Label class="h1" text="{{currentRecord.title}}" row="0"></Label>
+
+    <ScrollView orientation="vertical"  row="1">
+        <StackLayout>           
+            <StackLayout orientation="horizontal" marginTop="5">
+                <Label text="Title:" textWrap="true" marginRight="10"></Label>
+                <Label text="{{currentRecord.title}}" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout orientation="horizontal" marginTop="5">
+                <Label text="Author:" textWrap="true" marginRight="10"></Label>
+                <Label text="{{currentRecord.author}}" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout orientation="horizontal" marginTop="5">
+                <Label text="Purchase Date:" textWrap="true" marginRight="10"></Label>
+                <Label text="{{currentRecord.purchaseDate.toLocaleDateString()}}" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout orientation="horizontal" marginTop="5">
+                <Label text="Description:" textWrap="true" marginRight="10"></Label>
+                <Label text="{{currentRecord.description}}" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout *ngIf="currentRecord.isLoaned == 'out' &amp;&amp; currentRecord.loansList" orientation="horizontal" marginTop="15">
+                <Label class="text-danger" text="Book is Loaned to:" textWrap="true" marginRight="5"></Label>
+                <Label class="text-danger" text="{{currentRecord.loansList[0].LastName}}, {{currentRecord.loansList[0].FirstName}}" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout *ngIf="currentRecord.isLoaned == 'out' &amp;&amp; currentRecord.loansList" orientation="horizontal" marginTop="15">
+                <Label class="text-danger" text="Expected return date:" textWrap="true" marginRight="5"></Label>
+                <Label class="text-danger" text="{{currentRecord.loansList[0].returnDate}}" textWrap="true"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+    <StackLayout orientation="horizontal" marginTop="15" horizontalAlignment="center" row="2">
+        <Button text="Done" (tap)="close()" class="btn btn-primary btn-active btn-rounded-lg"></Button>
+    </StackLayout>
+</GridLayout>
