@@ -8,7 +8,6 @@ import { NativeScriptRouterModule } from 'nativescript-angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 // plugins
-import { NativeScriptUIDataFormModule } from 'nativescript-pro-ui/dataform/angular';
 
 // app
 import { Config } from './common/index';
@@ -21,6 +20,7 @@ import { FourDInterface, FourDModel, FourDCollection } from 'js44d';
 import { BookListComponent } from './bookList/bookList.component';
 import { BookEditWindow } from './bookList/bookEditWindow.component';
 import { StudentListComponent } from './studentList/studentList.component';
+import { StudentSelector } from './studentList/studentSelector.modal';
 
 Config.PLATFORM_TARGET = Config.PLATFORMS.MOBILE_NATIVE;
 
@@ -35,20 +35,25 @@ const routerModule = NativeScriptRouterModule.forRoot(routes);
         NativeScriptHttpModule,
         NativeScriptFormsModule,
         NativeScriptRouterModule,
-        NativeScriptUIDataFormModule,
         HttpClientModule,
         routerModule
 
     ],
+    exports: [
+        NativeScriptModule,
+        NativeScriptFormsModule,
+        NativeScriptHttpModule,
+        NativeScriptRouterModule
+    ],
     declarations: [
-        AppComponent, BookListComponent, BookEditWindow, StudentListComponent
+        AppComponent, BookListComponent, BookEditWindow, StudentListComponent, StudentSelector
     ],
     providers: [
         // Allows your {N} application to use lazy-loading
         { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader },
         FourDInterface, FourDModel, FourDCollection
     ],
-    entryComponents: [BookEditWindow],
+    entryComponents: [BookEditWindow, StudentSelector],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

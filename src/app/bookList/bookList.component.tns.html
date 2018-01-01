@@ -1,18 +1,25 @@
-<GridLayout rows="auto *">
+<GridLayout rows="auto, *">
     <SearchBar id="searchBar" hint="title or author" text="" (submit)="runSearch($event.object.text)" class="search-bar" row="0"></SearchBar>
     
     <ListView [items]="bookList" selectionBehavior="LongPress" (itemTap)="showRecord($event.index)" row="1">
         <ng-template let-item="item">
-            <GridLayout padding="10" rows="auto" columns="80, *">
-                <!-- Ideally use Imagecache for ios and {N} Fresco for android here -->
-                <Image row="0" col="0" height="80" width="80" [src]="bookCover(item)">
-                </Image>
-                <StackLayout verticalAlignment="center" marginLeft="10" row="0" col="1">
-                    <Label class="h4" [text]="item.title" ></Label>
-                    <Label class="h6" textWrap="true" [text]="item.author" ></Label>
-                    <Label class="pull-right {{(item.isLoaned == 'in')?'text-primary':'text-danger'}}" [text]="(item.isLoaned == 'in')?'Available':'Loaned'" marginLeft="20"></Label>
-                </StackLayout>
-            </GridLayout>
+            <AbsoluteLayout>
+                <GridLayout rows="80" columns="60, auto">
+                    <Label text="{{(item.isLoaned == 'in')?'Loan':'Return'}}" row="0" col="0" class="text-center text-primary" style="background-color:aquamarine" (tap)="doLoan(item)"></Label>
+                    <Label row="0" col="1"></Label>
+                </GridLayout>
+
+                <GridLayout rows="auto" columns="80, *" (swipe)="onSwipe($event)" style="width: 100%">
+                    <!-- Ideally use Imagecache for ios and {N} Fresco for android here -->
+                    <Image row="0" col="0" padding="10" height="80" width="80" [src]="bookCover(item)" style="background-color: whitesmoke;">
+                    </Image>
+                    <StackLayout verticalAlignment="center" marginLeft="10" row="0" col="1" style="width: 100%">
+                        <Label class="h4" [text]="item.title" ></Label>
+                        <Label class="h6" textWrap="true" [text]="item.author" ></Label>
+                        <Label class="text-right {{(item.isLoaned == 'in')?'text-primary':'text-danger'}}" [text]="(item.isLoaned == 'in')?'Available':'Loaned'" marginRight="10"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </AbsoluteLayout>
         </ng-template>
     </ListView>
 </GridLayout>

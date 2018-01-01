@@ -17,7 +17,8 @@ export class StudentListComponent {
 
     runSearch(text) {
         let student = new StudentsEx;
-        student.getRecords({ query: [StudentsEx.kfirstName + ';contains;' + text + ';OR', StudentsEx.klastName + ';contains;' + text + ';OR'] }).then(list => { this.studentList = list.models });
+        student.getRecords({ query: [StudentsEx.kfirstName + ';contains;' + text + ';OR', StudentsEx.klastName + ';contains;' + text + ';OR'] })
+            .then(list => { this.studentList = list.models });
     }
 
 }

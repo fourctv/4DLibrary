@@ -1,0 +1,17 @@
+<GridLayout rows="auto, auto, *, auto">
+    <Label text="Select a Student" textWrap="true" row="0"></Label>
+    
+    <SearchBar id="searchBar" hint="first or last name" text="" (submit)="runSearch($event.object.text)" class="search-bar" row="1"></SearchBar>
+    <ListView [items]="studentList" (itemTap)="selectStudent($event.index)" row="2">
+        <ng-template let-item="item">
+
+            <StackLayout verticalAlignment="center" marginLeft="10" marginBottom="10" marginTop="5">
+                <Label class="h4" text="{{item.lastName}}, {{item.firstName}}"></Label>
+            </StackLayout>
+
+        </ng-template>
+    </ListView>
+    <StackLayout orientation="horizontal" marginTop="15" horizontalAlignment="center" row="3">
+            <Button text="Done" (tap)="close()" class="btn btn-primary btn-active btn-rounded-lg"></Button>
+    </StackLayout>
+</GridLayout>
