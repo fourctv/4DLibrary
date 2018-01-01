@@ -1,56 +1,33 @@
-# Angular NativeScript Seed
+# 4D Library Sample
 
-Build truly web and native applications using NativeScript and Angular. This seed allows your project to share code between the environments; having complete control over dependencies.
+Built upon 4D's sample application: [Library](http://download.4d.com/Demos/4D_v14/StarterApps/Library.zip)
 
-## Highlights
-- i18n Translations
-- Lazy Loaded Modules
-- Angular CLI // Webpack // Testing
-- Target Phone and Tablet Templates Individually. The following extensions are supported:
+With the addition of the [RESTApi Component](https://github.com/fourctv/FourDRESTApi) and the [JS44D Library](https://github.com/fourctv/JS44D/).
 
-Extension                        | Platform
--------------------------------- | -----------
-`.{html/scss}`                   | Recommended for Web. Does apply to both platforms when **.tns** equivalent does not exist.
-`.tns.{html/scss}`               | Only for mobile
-`.tns.ios.{html/scss}`           | Only for iOS
-`.tns.android.{html/scss}`       | Only for Android
-`.tns.ios.phone.{html/scss}`     | Only for iOS Phone 
-`.tns.android.phone.{html/scss}` | Only for Android Phone
-- Docker build provided using NGINX to serve web content and load balance reverse proxied backends. (See nginx folder for setup instructions)
+## Requirements to run the sample
+- 4D V16
+- nodejs & npm
+- typescript
+- nativescript and XCode (if you want to try the mobile app)
 
-## Getting Started
-
-Web is setup from the root.
-
+## How to get it up on the web
+- download a copy of this repository and unzip it
+- start 4D v16 and open the **Library** structure
+- open a terminal session on the unzipped folder
+- run the following:
 ```
-npm i
+npm install
+npm start
 ```
+*need to run install only once*
+- open your browser and go to: http://localhost:4200
 
-Mobile is setup from the `nativescript` folder.
-
+## How to get mobile up
+- on the terminal session run:
 ```
 cd nativescript
-npm i
+npm install
+npm run ios --emulator
 ```
+*need to run install only once*
 
-Each platform is run respective to it's folder. View available commands here:
-
-- [Seed Commands](https://github.com/TeamMaestro/angular-native-seed/wiki/Seed-Commands)
-
-## How To's
-- [Integrating Angular Material (`@angular/material`)](https://github.com/TeamMaestro/angular-native-seed/wiki/Integrating-Material-for-Web)
-- [Integrating Ionic Styles & Components - Demo Project @proyecto26](https://github.com/proyecto26/nativescript-ionic-template)
-- [NativeScript with Angular Web Application Conversion](https://nativescripting.com/course/nativescript-with-angular-web-application-conversion)
-
-## Workspace Options
-- [VSCode WorkSpace Settings](https://github.com/TeamMaestro/angular-native-seed/wiki/Optional:-VSCode-WorkSpace-Settings)
-
-| | |
-|:---: |:---:|
-|![Web Preview](https://i.gyazo.com/1ba4d3be7b7332ce91bd6715dc752d8b.gif)|![Native Preview](https://i.gyazo.com/0a88b56cff9af632f618e5b123502f5f.gif)|
-
-# Contributors 
-
-[<img alt="Don Burgess" src="https://avatars1.githubusercontent.com/u/7612751?v=3&s=117" width="117">](https://github.com/db3dev) | [<img alt="Sean perkins" src="https://avatars1.githubusercontent.com/u/13732623?v=3&s=117" width="117">](https://github.com/sean-perkins) |
-:---: |:---: |
-[Don Burgess](https://github.com/db3dev) |[Sean Perkins](https://github.com/sean-perkins)|
