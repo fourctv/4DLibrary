@@ -40,13 +40,13 @@ export class StudentQueryBand {
          // Query based on First Name
         if (this.firstName && this.firstName !== '') {
             let queryItem = Students.kfirstName+ ';contains;' + this.firstName + ';AND';
-            query = (query)?query.query.push(queryItem):{query:[queryItem]};
+            (query)?query.query.push(queryItem):query = {query:[queryItem]};
         }
 
          // Query based on City
         if (this.city && this.city !== '') {
             let queryItem = Students.kcity+ ';contains;' + this.city + ';AND';
-            query = (query)?query.query.push(queryItem):{query:[queryItem]};
+            (query)?query.query.push(queryItem):query = {query:[queryItem]};
         }
          
         return query;

@@ -47,7 +47,7 @@ export class BooksQueryBand {
          // Query based on Book author
         if (this.author && this.author !== '') {
             let queryItem = Books.kauthor+ ';contains;' + this.author + ';AND';
-            query = (query)?query.query.push(queryItem):{query:[queryItem]};
+            (query)?query.query.push(queryItem):query = {query:[queryItem]};
         }
          
         // Query for Books available or not
