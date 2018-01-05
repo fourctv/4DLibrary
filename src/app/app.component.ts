@@ -47,11 +47,11 @@ export class AppComponent implements AfterContentInit {
         // no predefined user, login...
         this.fourD.signIn("designer", "x")
             .then(() => {
-                this.router.navigate(['/bookList']);
+                this.router.navigate(['/bookList'], { skipLocationChange: true });
             })
     }
 
     openApp(app) {
-        this.router.navigate([app]);
+        this.router.navigate([app], { skipLocationChange: true });
     }
 }
