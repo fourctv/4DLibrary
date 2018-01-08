@@ -21,7 +21,7 @@ export class BookListComponent {
     public columnDefs = [
         { title: 'Title', field: 'title', width:250},
         { title: 'Author', field: 'author', width:150, filterable: { multi: true }  },
-        { title: 'Status', field: 'isLoaned', width:50, template:function (dataItem){return (dataItem.isLoaned == 'in')?'\uf00c':'\uf00d'}, attributes:{style: "text-align: center; font-family: FontAwesome, fontawesome; color: darkred; font-size: 24px"} },
+        { title: 'Avail', field: 'isLoaned', width:50, template:function (dataItem){return (dataItem.isLoaned == 'in')?'\uf00c':'\uf00d'}, attributes:{style: "text-align: center; font-family: FontAwesome, fontawesome; color: darkred; font-size: 24px"} },
         { title: 'Description', field: 'description', width:250 },
         { title: 'Purchase Date', field: 'purchaseDate', template:function (dataItem){return (isNaN(dataItem.purchaseDate))?'':kendo.format('{0:d}',dataItem.purchaseDate)}, width: 80}
     ];
