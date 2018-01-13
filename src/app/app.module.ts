@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // app
 import { Config } from './common/index';
@@ -19,16 +20,17 @@ import { JS44DModule, ModalModule } from 'js44d';
 const routerModule = RouterModule.forRoot(routes);
 
 @NgModule({
-    declarations: [ AppComponent ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         FormsModule,
         CommonModule,
         HttpClientModule,
         routerModule,
+        BrowserAnimationsModule,
         FourDModule, JS44DModule, ModalModule
     ],
     providers: [],
-    bootstrap: [ AppComponent ]
+    bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

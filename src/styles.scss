@@ -11,9 +11,11 @@ body {
 */
 
 @import './assets/kendo/kendo.common.css';
-@import './assets/kendo/kendo.default.css';
+@import './assets/kendo/kendo.material.min.css';
 
 @import './assets/main';
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap/dist/css/bootstrap-theme.min.css';
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';

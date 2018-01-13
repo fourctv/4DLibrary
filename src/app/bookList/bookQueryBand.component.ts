@@ -6,14 +6,13 @@ import { Books } from '../dataModels/DB/Books';
     selector: 'books-queryband',
     template: `
             <form>
-                <label class="fieldPrompt" for="bookTitle" style="margin-right:5px;">Book Title</label>
-                <input name="bookTitle" type="text" class="fieldEntry"  style="width:180px;height:20px;" [(ngModel)]="title"/>
-                <label class="fieldPrompt" for="bookAuthor" style="margin-right:5px;margin-left:10px;">Author</label>
-                <input name="bookAuthor" type="text" class="fieldEntry"  style="width:180px;height:20px;" [(ngModel)]="author"/>
-                <input name="bookIn" type="checkbox" class="fieldEntry"  style="margin-right:2px;margin-left:35px;" [(ngModel)]="statusIn"/>
-                <label class="fieldPrompt" for="bookIn">Available?</label>
-                <input name="bookOut" type="checkbox" class="fieldEntry"  style="margin-right:2px;margin-left:15px;" [(ngModel)]="statusOut"/>
-                <label class="fieldPrompt" for="bookOut" >Loaned?</label>
+                <mat-form-field><input matInput placeholder="Book Title" name="bookTitle" type="text" style="width:180px;" [(ngModel)]="title"/></mat-form-field>
+                <mat-form-field style="margin-left:20px;width:180px;"><input matInput placeholder="Author" name="bookAuthor" type="text" [(ngModel)]="author"/></mat-form-field>
+
+
+                <mat-checkbox name="bookIn"  style="margin-left:35px;" [(ngModel)]="statusIn">Available?</mat-checkbox>
+
+                <mat-checkbox name="bookOut" style="margin-left:35px;" [(ngModel)]="statusOut">Loaned?</mat-checkbox>
             </form>
 `
 })

@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Routes } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+// material
+import { MatCheckboxModule, MatInputModule, MatFormFieldModule, MatButtonModule } from '@angular/material';
 
 import { StudentListComponent } from './studentList.component';
 import { StudentQueryBand } from './studentQueryBand.component';
@@ -28,6 +31,7 @@ export const StudentListRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forChild(StudentListRoutes),
+    MatCheckboxModule, MatInputModule, MatFormFieldModule, MatButtonModule,
     FourDModule, JS44DModule, ModalModule
   ],
   providers: [HttpClient],

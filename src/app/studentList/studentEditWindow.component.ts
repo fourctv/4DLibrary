@@ -17,7 +17,7 @@ export class StudentEditWindow extends RecordEditWindow implements AfterContentI
         actions: ['Maximize', 'Minimize', 'Close'], position: { top: 100, left: 100 }, selfCentered: true,
         title: 'Cliente Best',
         isResizable: false,
-        width: 750, height: 700
+        width: 750, height: 720
     };
 
     @Input() public currentRecord: StudentsEx;

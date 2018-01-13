@@ -7,12 +7,9 @@ import { Students } from 'app/dataModels/DB/Students';
     selector: 'students-queryband',
     template: `
             <form>
-                <label class="fieldPrompt" for="lastName" style="margin-right:5px;">Last Name</label>
-                <input name="lastName" type="text" class="fieldEntry"  style="width:180px;height:20px;" [(ngModel)]="lastName"/>
-                <label class="fieldPrompt" for="firstName" style="margin-right:5px;margin-left:10px;">First Name</label>
-                <input name="firstName" type="text" class="fieldEntry"  style="width:180px;height:20px;" [(ngModel)]="firstName"/>
-                <label class="fieldPrompt" for="city" style="margin-right:5px;margin-left:10px;">City</label>
-                <input name="city" type="text" class="fieldEntry"  style="width:180px;height:20px;" [(ngModel)]="city"/>
+                <mat-form-field><input matInput placeholder="Last Name" name="lastName" type="text" style="width:180px;" [(ngModel)]="lastName"/></mat-form-field>
+                <mat-form-field style="width:180px;margin-left:20px;"><input matInput placeholder="First Name" name="firstName" type="text" [(ngModel)]="firstName"/></mat-form-field>
+                <mat-form-field style="width:180px;margin-left:20px;"><input matInput placeholder="City" name="city" type="text" [(ngModel)]="city"/></mat-form-field>
             </form>
 `
 })
