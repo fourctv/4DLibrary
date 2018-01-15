@@ -96,28 +96,14 @@ export class BookListComponent {
             const options: ModalDialogOptions = {
                 viewContainerRef: this.viewref,
                 fullscreen: false,
-                context: {}
+                context: {book:book}
             };
 
             this.modalService.showModal(StudentSelector, options)
                 .then((select: Students) => {
                     if (select) {
                         console.log(select.firstName + ' ' + select.lastName);
-                        setTimeout(() => {
-
-                            dialog.confirm(
-                                {
-                                    title: 'Confirm Book Loan',
-                                    message: 'Loan "' + book.title + '" to "' + select.firstName + ' ' + select.lastName + '"?',
-                                    okButtonText: 'Confirm', cancelButtonText: 'Cancel'
-                                }
-                            ).then(result => {
-                                if (result) { // did user confirm Loan request?
-                                    this.doLoanRequest(book, select);
-                                }
-                            })
-                        }, 600);
-
+                        this.doLoanRequest(book, select);
                     }
 
                 });

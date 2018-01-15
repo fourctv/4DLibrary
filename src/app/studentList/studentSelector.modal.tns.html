@@ -1,8 +1,13 @@
-<GridLayout rows="auto, auto, *, auto">
-    <Label text="Select a Student" textWrap="true" row="0"></Label>
+<GridLayout rows="auto, auto, auto, *, auto">
+    <StackLayout marginBottom="15" row="0">
+        <Label text="Loan" textWrap="true" class="h1 text-center"></Label>
+        <Label text="{{book.title}}" textWrap="true" class="h2 text-center text-primary"></Label>
+    </StackLayout>
+
+    <Label text="Select the Student Loaning the Book" class="h4" marginLeft="10" marginBottom="15" textWrap="true" row="1"></Label>
     
-    <SearchBar id="searchBar" hint="first or last name" text="" (submit)="runSearch($event.object.text)" class="search-bar" row="1"></SearchBar>
-    <ListView [items]="studentList" (itemTap)="selectStudent($event.index)" row="2">
+    <SearchBar id="searchBar" hint="first or last name" text="" (submit)="runSearch($event.object.text)" class="search-bar h4" row="2"></SearchBar>
+    <ListView [items]="studentList" (itemTap)="selectStudent($event.index)" row="3">
         <ng-template let-item="item">
 
             <StackLayout verticalAlignment="center" marginLeft="10" marginBottom="10" marginTop="5">
@@ -11,7 +16,7 @@
 
         </ng-template>
     </ListView>
-    <StackLayout orientation="horizontal" marginTop="15" horizontalAlignment="center" row="3">
-            <Button text="Done" (tap)="close()" class="btn btn-primary btn-active btn-rounded-lg"></Button>
+    <StackLayout orientation="horizontal" marginTop="15" horizontalAlignment="center" row="4">
+            <Button text="   Back   " (tap)="close()" class="btn btn-primary btn-active btn-rounded-lg"></Button>
     </StackLayout>
 </GridLayout>

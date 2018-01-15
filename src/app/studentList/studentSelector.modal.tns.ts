@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
+import * as dialog from "tns-core-modules/ui/dialogs";
 
 import { BooksEx } from '../dataModels/customDataModels/BooksEx';
 import { Students } from '../dataModels/DB/Students';
@@ -14,9 +15,10 @@ export class StudentSelector {
 
 
     public studentList: Array<Students> = [];
-
+    public book:BooksEx;
 
     constructor(private params: ModalDialogParams) {
+        this.book = params.context.book;
     }
 
 
@@ -27,7 +29,19 @@ export class StudentSelector {
     }
 
     public selectStudent(index) {
-        this.params.closeCallback(this.studentList[index]);
+        let student:Students = this.studentList[index];
+        dialog.confirm(
+            {
+                title: 'Confirm Book Loan',
+                message: 'Loan "' + this.book.title + '" to "' + student.firstName + ' ' + student.lastName + '"?',
+                okButtonText: 'Confirm', cancelButtonText: 'Cancel'
+            }
+        ).then(result => {
+            if (result) { // did user confirm Loan request?
+                this.params.closeCallback(student);
+            }
+        })
+
     }
     
     public close() {
