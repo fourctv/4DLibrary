@@ -20,7 +20,7 @@ export class AppComponent implements AfterContentInit {
 
     public appVersion;string = '?';
     constructor(public router: Router, private fourD: FourDInterface) {
-        FourDInterface.fourDUrl = 'http://localhost:8181';
+        FourDInterface.fourDUrl = 'http://10.0.1.105:8181';
 
     }
 
